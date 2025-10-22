@@ -5,7 +5,7 @@
 	<groupId>com.mt</groupId>
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.1</version>
+	<version>1.0.1-SNAPSHOT</version>
 	
 	<name>maven-web-application</name>
 
@@ -21,7 +21,7 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://3.25.177.71:9000/</sonar.host.url>
+		<sonar.host.url>http://13.239.19.22:9000/</sonar.host.url>
 		<sonar.token>sqa_923001c13ea2847adf58e32431053099a89d77fd</sonar.token>
 		<!--
 		<sonar.login>admin</sonar.login>
@@ -100,13 +100,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Amazon Releases Nexus Repository</name>
-	      <url>http://16.176.102.6:8081/Devops-practice/repository/Amazon-release/</url>
+	      <url>http://3.107.52.126:8081/Devops-practice/repository/Amazon-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Amazon Releases Nexus Repository</name>
-	      <url>http://16.176.102.6:8081/Devops-practice/repository/Amazon-snapshot/</url>
+	      <url>http://3.107.52.126:8081/Devops-practice/repository/Amazon-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
