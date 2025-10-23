@@ -1,1 +1,24 @@
-
+node
+{
+ //def mavenHome = toolname: "Maven"
+ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '')), pipelineTriggers([pollSCM('* * * * *')])])
+ stage('checkout gitcode')
+ {
+ git branch: 'Dev-Feature', credentialsId: 'f46c15f0-0ee3-4885-9958-d9b0cdfda6ef', url: 'https://github.com/Harunbasha/maven-web-application.git'
+ }
+ stage('build')
+ {
+ //sh "${mavenHome}/bin/mvn clean package"
+ sh "mvn clean package"
+ }
+ stage('sonarcode checkout')
+ {
+ sh "mvn sonar:sonar"
+ }
+ /*
+ stage('Nexus repository uploaded')
+ {
+ sh "mvn clean deploy"
+ }
+ */
+}
