@@ -1,6 +1,6 @@
 node
 {
- //def mavenHome = toolname: "Maven"
+ def mavenHome = toolname: "Maven3.6.3"
  properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
  stage('checkout gitcode')
  {
@@ -8,17 +8,17 @@ node
  }
  stage('build')
  {
- //sh "${mavenHome}/bin/mvn clean package"
- sh "mvn clean package"
+ sh "${mavenHome}/bin/mvn clean package"
+ //sh "mvn clean package"
  }
  stage('sonarcode checkout')
  {
- sh "mvn sonar:sonar"
+ sh "${mavenHome}/bin/mvn sonar:sonar"
  }
- /*
+ 
  stage('Nexus repository uploaded')
  {
- sh "mvn clean deploy"
+ sh "${mavenHome}/bin/mvn clean deploy"
  }
- */
+ 
 }
