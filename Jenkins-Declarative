@@ -1,0 +1,61 @@
+pipeline{
+agent any
+ tools
+  {
+    maven 'Maven3.6.3'
+    //tomcatUser = 'admin'
+    //tomcatPass = 'Passw0rd'
+  }
+  triggers
+  {
+    //cron('* * * * *')
+    pollSCM('* * * * *')
+  }
+  options
+  {
+      //timestamp()
+      buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
+  }
+stages{
+ stage('checkout gitcode')
+	{
+	  steps()
+      {
+       git branch: 'Dev-Feature', credentialsId: 'f46c15f0-0ee3-4885-9958-d9b0cdfda6ef', url: 'https://github.com/Harunbasha/maven-web-application.git'
+      }
+    }
+ stage('Build Project')
+    {
+      steps()
+      {
+        sh "mvn clean package"
+      }
+    }
+    
+    stage('Execute SonarQube Report')
+    {
+      steps()
+      {
+        sh "mvn clean sonar:sonar"
+      }
+    }
+    
+    /*stage('Upload Artifacts to Sonatype Nexus')
+    {
+      steps()
+      { 
+        //maven 'Maven3.6.3'  
+        sh "mvn clean deploy"
+      }
+    }
+    stage('Deploy into Tomcat')
+    {
+      steps()
+      {
+	sshagent(credentials: ['tomcat']) {
+    sh "scp -o StrictHostKeyChecking=no D:/Devops-Practice/Maven/maven-web-application/target ec2-user@13.210.101.83:/opt/tomcat/webapps/"
+    }
+	  }
+	}*/
+  }
+ }
