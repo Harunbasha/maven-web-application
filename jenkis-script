@@ -19,5 +19,4 @@ node{
  {
  sh "${mavenHome}/bin/mvn clean deploy"
  }
- 
 }
