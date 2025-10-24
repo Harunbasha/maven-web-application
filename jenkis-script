@@ -9,16 +9,18 @@ node{
  }
  stage('build')
  {
- sh "${mavenHome}/bin/mvn clean package"
- //sh "mvn clean package"
+ //sh "${mavenHome}/bin/mvn clean package"
+ sh "mvn clean package"
  }
  stage('sonarcode checkout')
  {
- sh "${mavenHome}/bin/mvn sonar:sonar"
+ //sh "${mavenHome}/bin/mvn sonar:sonar"
+sh "mvn sonar:sonar"
  }
  
  stage('Nexus repository uploaded')
  {
- sh "${mavenHome}/bin/mvn clean deploy"
+ //sh "${mavenHome}/bin/mvn clean deploy"
+ sh "mvn clean deploy"
  }
 }
