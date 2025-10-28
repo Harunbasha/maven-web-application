@@ -1,0 +1,13 @@
+pipeline{
+agnet any
+parameters{
+  string(name: 'Name',defaultvalue: 'Harun', description: 'Pass the Name')
+  }
+ stages
+ {
+  stage('GitHub Code')
+  steps{
+   sh "echo the name is: ${params.Name}"
+   }
+   }
+}
