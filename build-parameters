@@ -1,7 +1,7 @@
 pipeline{
 agnet any
 parameters{
-  string(name: 'Name',defaultvalue: 'Harun', description: 'Pass the Name')
+  string(name: 'Name', defaultvalue: 'Harun', description: 'Pass the Name')
   }
  stages
  {
