@@ -9,7 +9,8 @@ parameters{
   stage('GitHub Code')
   steps{
    //sh "echo the name is: ${params.Name}"
-   git branch: "${param.BranchName}", credentialsId: 'f46c15f0-0ee3-4885-9958-d9b0cdfda6ef', url: 'https://github.com/Harunbasha/maven-web-application.git'
+   //git branch: "${param.BranchName}", credentialsId: 'f46c15f0-0ee3-4885-9958-d9b0cdfda6ef', url: 'https://github.com/Harunbasha/maven-web-application.git'
+   git branch: '${param.BranchName}', credentialsId: 'f46c15f0-0ee3-4885-9958-d9b0cdfda6ef', url: 'https://github.com/Harunbasha/maven-web-application.git'   
    }
    }
 }
